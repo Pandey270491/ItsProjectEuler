@@ -4,35 +4,47 @@
 public class eulerProblem3 {
 
     public static void main(String[] args) {
+
         long number = 600851475143L;
         getLargestPrimeFactor(number);
     }
 
     public static void getLargestPrimeFactor(long number) {
-        long largestPrimeFactor;
-        for(largestPrimeFactor = 0L; number % 2L == 0L; number /= 2L) {
-            if(number == 1L) {
-                largestPrimeFactor = 2L;
+        long largestPrimeFactor =0;
+
+        while(number%2==0)
+        {
+            if(number==1)
+            {
+                largestPrimeFactor=2;
                 System.out.println(largestPrimeFactor);
                 break;
             }
-        }
+           else{
+                number =number/2;
+            }
 
-        for(largestPrimeFactor = 3L; number != 1L; largestPrimeFactor += 2L) {
-            while(number % largestPrimeFactor == 0L) {
-                if(number == 1L) {
+        }
+        largestPrimeFactor=3;
+        while(number!=1)
+        {
+            while (number % largestPrimeFactor == 0) {
+                if (number == 1) {
                     System.out.println(largestPrimeFactor);
                     break;
+                } else {
+                    number = number / largestPrimeFactor;
                 }
-
-                number /= largestPrimeFactor;
             }
-
-            if(number == 1L) {
+            if(number==1)
+            {
                 System.out.println(largestPrimeFactor);
                 break;
             }
+            else
+            {
+                largestPrimeFactor+=2;
+            }
         }
-
     }
 }
